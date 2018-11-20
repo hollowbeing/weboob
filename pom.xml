@@ -5,9 +5,35 @@
 	<artifactId>weboob</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>weboob Maven Webapp</name>
+	<name>weboob</name>
 	<url>http://maven.apache.org</url>
+
+	<properties>
+		<!-- 指定字符集,解决maven编码:gbk的不可映射字符 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<struts2.version>2.3.32</struts2.version>
+	</properties>
+
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.apache.struts/struts2-core -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+			<version>${struts2.version}</version>
+		</dependency>
+		<!-- convention-plugin插件，使用了这个插件之后，就可以采用注解的方式配置Action -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-convention-plugin</artifactId>
+			<version>${struts2.version}</version>
+		</dependency>
+		<!--config-browser-plugin插件，使用了这个插件之后，就可以很方便的浏览项目中的所有action及其与 jsp view的映射 -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-config-browser-plugin</artifactId>
+			<version>${struts2.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -15,7 +41,21 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
 	<build>
 		<finalName>weboob</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<!-- 设置 JDK 版本以及编码 -->
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>utf-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>
