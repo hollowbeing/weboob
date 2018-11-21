@@ -8,8 +8,8 @@
 <title>struts2 tag</title>
 </head>
 <body>
-	<h1 style="color:red">Red Helloworld!</h1>
-	<h1 style="<c:out value="color:blue"/>">Red Helloworld!</h1>
+	<h1 style="color:red">RED Helloworld!</h1>
+	<h1 style="<c:out value="color:blue"/>">BLUE Helloworld!</h1>
 	<c:out value="Helloworld!"/>
 	<c:out value="${param.cars}"/>
 	
@@ -17,8 +17,8 @@
 		<select name="cars">
 			<option value="volvo">Volvo</option>
 			<option value="saab">Saab</option>
-			<option value="fiat" selected="<c:if test="${param.applyTypeId==id.applyTypeId}">selected</c:if>">Fiat</option>
-<%-- 		<option value="fiat" <c:if test="${param.applyTypeId==id.applyTypeId}">selected</c:if>>Fiat</option> --%>
+<%-- 		<option value="fiat" selected="<c:if test="${param.applyTypeId==id.applyTypeId}">selected</c:if>">Fiat</option> --%>
+			<option value="fiat" <c:if test="${param.applyTypeId==id.applyTypeId}">selected</c:if>>Fiat</option>
 			<option value="audi">Audi</option>
 		</select>
 		<input type="submit" value="TEST"></input>
